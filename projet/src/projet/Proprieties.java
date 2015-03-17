@@ -17,17 +17,17 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
-public class Proprieties extends JPanel {
+public class Proprieties  {
 	
 
 	
 	
 	
 	public Color color;
-	Screen sc;
+	
 	JButton btnTextcolor;
 	JButton btnBackground;
-
+	int x2=50,y2=205,z2=50; /*proprieties button color */
 	
 	
 
@@ -43,47 +43,47 @@ public Proprieties(){
 	lblText.setAlignmentX(Component.CENTER_ALIGNMENT);
 	lblText.setFont(new Font("Ubuntu Medium", Font.BOLD, 13));
 	lblText.setForeground(Color.BLACK);
-	Fanetre.verticalBox_1.add(lblText);
+	Fenetre.verticalBox_1.add(lblText);
 
 
 	JTextField textField = new JTextField();
 	textField.setAlignmentY(Component.TOP_ALIGNMENT);
 	textField.setMaximumSize(new Dimension(300, 30));
-	Fanetre.verticalBox_1.add(textField);
+	Fenetre.verticalBox_1.add(textField);
 	textField.setColumns(10);
 	
 	JSeparator separator_2 = new JSeparator();
 	separator_2.setMaximumSize(new Dimension(300, 20));
-	Fanetre.verticalBox_1.add(separator_2);
+	Fenetre.verticalBox_1.add(separator_2);
 	
 		
 	
 	btnTextcolor = new JButton("textColor");
 	btnTextcolor.setBorder(UIManager.getBorder("CheckBox.border"));
-	Fanetre.verticalBox_1.add(btnTextcolor);
-	btnTextcolor.setBackground(new Color(153, 204, 102));
+	Fenetre.verticalBox_1.add(btnTextcolor);
+	btnTextcolor.setBackground(new Color(x2,y2,z2));
     btnTextcolor.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 				
 			color=JColorChooser.showDialog(null, "choose your color",Color.white );
 	  
-		    sc.dc2.c.setForeground(color);
+		    Screen.sc.DC.c.setForeground(color);
 	}
 		});
     
     
 	JSeparator separator = new JSeparator();
 	separator.setMaximumSize(new Dimension(300, 20));
-	Fanetre.verticalBox_1.add(separator);
+	Fenetre.verticalBox_1.add(separator);
 	
 	btnBackground = new JButton("background");
-	Fanetre.verticalBox_1.add(btnBackground);
+	Fenetre.verticalBox_1.add(btnBackground);
 	btnBackground.setBorder(UIManager.getBorder("CheckBox.border"));
-	btnBackground.setBackground(new Color(153, 204, 102));
+	btnBackground.setBackground(new Color(x2,y2,z2));
 	
 	JSeparator separator_1 = new JSeparator();
 	separator_1.setMaximumSize(new Dimension(300, 20));
-	Fanetre.verticalBox_1.add(separator_1);
+	Fenetre.verticalBox_1.add(separator_1);
 	
 	
 	
@@ -94,7 +94,7 @@ public Proprieties(){
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			color=JColorChooser.showDialog(null, "choose your color", Color.GRAY);
-			sc.DC.c.setBackground(color);
+			Screen.sc.DC.c.setBackground(color);
 					
 	}
 	    });

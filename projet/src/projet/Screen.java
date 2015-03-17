@@ -1,44 +1,54 @@
 package projet;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+
 import java.awt.event.ActionListener;
 
 
 public class Screen extends JPanel {
 
-	DraggedComponent DC,dc2;
+	DraggedComponent DC;
 	public static int tglClicked2; 
+	JLabel lblScreen;
+	int x1=102,y1=204,z1=0;   /*color of lineborder*/
+	
+	
+	public static final Screen sc=new Screen();
 	
 	public Screen(){
-		setBorder(new MatteBorder(2, 2, 2, 3, (Color) new Color(51, 204, 0)));
+		setBorder(new MatteBorder(2, 2, 2, 3, (Color) new Color(x1,y1,x1)));
 		setBackground(new Color(51, 0, 51));
 		setPreferredSize(new Dimension(270, 380));
 		setMinimumSize(new Dimension(270, 300));
 		setMaximumSize(new Dimension(270, 300));
 		setLayout(null);
 		
-		JLabel lblScreen = new JLabel("Screen");
-		lblScreen.setBorder(new LineBorder(new Color(51, 204, 0), 2, true));
+		lblScreen = new JLabel("Screen");
+		lblScreen.setBorder(new LineBorder(new Color(x1, y1, z1), 2, true));
 		lblScreen.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblScreen.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScreen.setOpaque(true);
-		lblScreen.setBackground(new Color(204, 255, 204));
+		lblScreen.setBackground(new Color(230,230,250));
 		lblScreen.setBounds(0, 0, 270, 34);
 		this.add(lblScreen);
 		this.updateUI();
 		
-		
+		  
 		
 	
 	addMouseListener(new MouseAdapter() {
@@ -54,6 +64,9 @@ public class Screen extends JPanel {
             if(Palette.tglClicked=="Label"){
             	DC=	new DraggedComponent("Label");	
             	DC.c.setLocation(a.getX(), a.getY());
+            	
+            	
+            	
 			}
             if(Palette.tglClicked=="Text Box"){
             	DC=	new DraggedComponent("Text Box");
@@ -62,6 +75,8 @@ public class Screen extends JPanel {
             if(Palette.tglClicked=="Radio Button"){
             	DC=	new DraggedComponent("Radio Button");	
             	DC.c.setLocation(a.getX(), a.getY());
+            	
+            	
             }
             if(Palette.tglClicked=="Slider"){
             	DC=	new DraggedComponent("Slider");	
@@ -69,75 +84,36 @@ public class Screen extends JPanel {
             }
             Palette.tglClicked=null;
             
-            if(a.getSource()=="Button"){
-    			tglClicked2=1;
-    		}
-            if(a.getSource()=="Label"){
-    			tglClicked2=2;
-
-    		}
-            if(a.getSource()=="Text Box"){
-    			tglClicked2=3;
-
-    		}
-            if(a.getSource()=="Radio Button"){
-    			tglClicked2=4;
-
-    		}
-            if(a.getSource()=="Slider"){
-    			tglClicked2=5;
-
-    		}
+          
             
             
        add(DC.c);
+    
        updateUI();
 		}
+		
+	
+
+		
+		
+		
 		});
 	
 	
 	
 	
 	
-	event scr=new event();
 	
 	
 	
 
-	/*addMouseListener(new MouseAdapter(){
-		public void mousePressed(MouseEvent scr) {
-		
-		if(scr.getSource()=="Button"){
-			tglClicked2=1;
-		}
-        if(scr.getSource()=="Label"){
-			tglClicked2=2;
-
-		}
-        if(scr.getSource()=="Text Box"){
-			tglClicked2=3;
-
-		}
-        if(scr.getSource()=="Radio Button"){
-			tglClicked2=4;
-
-		}
-        if(scr.getSource()=="Slider"){
-			tglClicked2=5;
-
-		}
-	}
 	
-	});
-	
-}
-
-	
-      */
 	
 	
 	
 }
+	
+	
 public class event implements ActionListener{
 
 	@Override
@@ -168,4 +144,8 @@ public class event implements ActionListener{
 	
 	
 }
+
+
+
+
 }

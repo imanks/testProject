@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
+import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
@@ -37,11 +38,12 @@ public Palette(){
         jtb[i]=new JToggleButton(n[i]);
         jtb[i].setFont(new Font("Arial", Font.BOLD, 12));
 		jtb[i].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		jtb[i].setBackground(new Color(204, 204, 153));
+		jtb[i].setBackground(new Color(169,169,169));
+		jtb[i].setBorder(UIManager.getBorder("CheckBox.border"));
 		jtb[i].setMaximumSize(new Dimension(140, 23));
 		jtb[i].addActionListener(this);
 		bg.add(jtb[i]);
-		Fanetre.verticalBox.add(jtb[i]);		
+		Fenetre.verticalBox.add(jtb[i]);		
 		
 	}
 	
