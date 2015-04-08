@@ -22,7 +22,7 @@ public class Palette  implements ActionListener{
 	
 	
 	
-	JToggleButton [] jtb= new JToggleButton[5];
+	JToggleButton [] jtb= new JToggleButton[7];
 	int i;	
 	public static String tglClicked; 
 	
@@ -33,7 +33,7 @@ public Palette(){
 	
 
     ButtonGroup bg = new ButtonGroup();
-    String[] n={"Button","Label","Text Box","Radio Button","Slider"};
+    String[] n={"Button","Label","Text Box","Radio Button","Slider","VLayout","HLayout"};
 	for(i=0; i<jtb.length ;i++){
         jtb[i]=new JToggleButton(n[i]);
         jtb[i].setFont(new Font("Arial", Font.BOLD, 12));
@@ -72,6 +72,16 @@ public Palette(){
 			tglClicked=jtb[4].getText();
 
 		}
+        if(a.getSource()==jtb[5]){
+			tglClicked=jtb[5].getText();
+
+		}
+        if(a.getSource()==jtb[6]){
+			tglClicked=jtb[6].getText();
+
+		}
+        
+        
 	}
 
 

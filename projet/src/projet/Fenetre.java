@@ -31,13 +31,15 @@ import projet.Fenetre;
 import projet.Palette;
 import projet.Proprieties;
 import projet.Screen;
+
 import javax.swing.JPopupMenu;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Fenetre {
 
-	public JFrame frame;
+	public static JFrame frame;
     public JTextField textField;
     public Color color;
     public static Box verticalBox,verticalBox_1;
@@ -45,8 +47,8 @@ public class Fenetre {
     int b=128,r=0,j=0; /*color of titleBorber*/
     int x1=102,y1=204,z1=0;   /*color of lineborder*/
     int x2=50,y2=205,z2=50; /*proprieties button color */
-    
-    
+    public JPanel panel ;
+    public Box horizontalBox_2 ;
     
     /**
 	 * Launch the application.
@@ -105,13 +107,39 @@ public class Fenetre {
 		lblProjectname.setForeground(new Color(128, 0, 0));
 		horizontalBox_1.add(lblProjectname);
 		
+		
+		//
+		//button add new screen
+		//
+		
+		JButton btn=new JButton("nvl fenetre");
+		horizontalBox_1.add(btn);
+		btn.setBounds(0, 0, 80, 40);
+		btn.setBackground(new Color(144,238,144));
+		
+		btn.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent a){
+				panel.add(new Screen("new Screen"));
+				panel.updateUI();
+				
+				}
+			
+			
+		});
+		
+		
+		
+		
+		
+		
+		
 		verticalBox = Box.createVerticalBox();
 		verticalBox.setFont(new Font("Arial", Font.BOLD, 13));
 		//verticalBox.setBorder(new TitledBorder(new LineBorder(new Color(102, 204, 0), 3, true), "Palette", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 204)));
 		verticalBox.setBorder(new TitledBorder(new LineBorder(new Color(x1, y1, z1), 3, true), "Palette", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(b,r,j)));
 	    verticalBox.setBackground(new Color(153, 153, 153));
 		
-		Box horizontalBox_2 = Box.createHorizontalBox();
+		horizontalBox_2 = Box.createHorizontalBox();
 		horizontalBox_2.setMaximumSize(new Dimension(0, 800));
 		horizontalBox_2.setBackground(new Color(255, 255, 255));
 		//horizontalBox_2.setBorder(new TitledBorder(new LineBorder(new Color(204, 255, 102), 2, true), "Viewer", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(153, 255, 204)));
@@ -151,7 +179,7 @@ public class Fenetre {
 		
 		
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBorder(UIManager.getBorder("MenuItem.border"));
 		panel.setBackground(new Color(152, 251, 152));
 		horizontalBox_2.add(panel);
@@ -163,9 +191,8 @@ public class Fenetre {
 		
 		
 		//
-	//	final Screen sc=new Screen();
-		//sc.setBackground(new Color(0, 0, 0));
 		panel.add(Screen.sc);
+		
 	    
 		
 		
