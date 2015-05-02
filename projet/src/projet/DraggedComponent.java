@@ -45,6 +45,7 @@ implements MouseMotionListener,FocusListener{
 	}
 	
 	   
+	
 public DraggedComponent(String type){
 	
 	   if(type=="panel"){
@@ -84,12 +85,12 @@ public DraggedComponent(String type){
     }
         if(type=="VLayout"){
         	c=Box.createVerticalBox();
-        	c.setBorder(new LineBorder(Color.RED,3,false));
+        	c.setBorder(new LineBorder(Color.BLUE,3,false));
         	 c.setSize( 30,310);
         }
         if(type=="HLayout"){
         	c=Box.createHorizontalBox();
-        	c.setBorder(new LineBorder(Color.RED,3,false));
+        	c.setBorder(new LineBorder(Color.BLUE,2,false));
        	 c.setSize(250, 30);
 
         }
@@ -194,7 +195,7 @@ c.addMouseListener(new MouseAdapter() {
 
 
 
-	@Override
+	
 	
 	
 	
@@ -227,7 +228,7 @@ c.addMouseListener(new MouseAdapter() {
 
 
 
-	@Override
+	
 	public void focusLost(FocusEvent arg0) {
 		isDeleted=false;
 		System.out.println("manich hna");
@@ -261,7 +262,7 @@ static int oneTime=0;
 	}
 
 
-	@Override
+	
 	public void mouseMoved(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		

@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -13,6 +14,7 @@ import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -29,18 +31,44 @@ public class Proprieties  {
 	
 	JButton btnTextcolor;
 	JButton btnBackground;
+	JButton executer;
 	int x2=50,y2=205,z2=50; /*proprieties button color */
-	static JTextField textField;
+	static JTextField textField,txtFieldsc;
 	static JButton []widthAndheight ;
-
-
+    static JLabel onclk;
+	static JList jlistbtn;
+	
 public Proprieties(){
 		
-	   
+	JLabel lblTextsc = new JLabel("Screen name");
+	
+	
+	lblTextsc.setSize(new Dimension(100, 0));
+	lblTextsc.setAlignmentX(Component.CENTER_ALIGNMENT);
+	lblTextsc.setFont(new Font("Ubuntu Medium", Font.BOLD, 13));
+	lblTextsc.setForeground(Color.BLACK);
+	Fenetre.verticalBox_1.add(lblTextsc);
+	
+	txtFieldsc=new JTextField();
+	txtFieldsc.setAlignmentY(Component.TOP_ALIGNMENT);
+	txtFieldsc.setMaximumSize(new Dimension(300, 30));
+	Fenetre.verticalBox_1.add(txtFieldsc);
+	txtFieldsc.setColumns(10);
+	
+	txtFieldsc.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+          if(txtFieldsc.getText()!=null){
+        	  
+        	Screen.lblScreen.setText(txtFieldsc.getText());
+        	 
+          }			
+		}
+	});
 	
 	
 	JLabel lblText = new JLabel("text");
-	
 	lblText.setSize(new Dimension(100, 0));
 	lblText.setAlignmentX(Component.CENTER_ALIGNMENT);
 	lblText.setFont(new Font("Ubuntu Medium", Font.BOLD, 13));
@@ -101,8 +129,6 @@ public Proprieties(){
 	
 	
 	
-	
-	
 	btnBackground.addActionListener(new ActionListener() {
 		
 		@Override
@@ -133,6 +159,8 @@ public Proprieties(){
 	
 	widthAndheight = new JButton[]{new JButton("largeur"),
 			new JButton("Hauteur")};
+	
+	
 	ActionListener action =new ActionListener() {
 		
 		@Override
@@ -141,12 +169,12 @@ public Proprieties(){
 			try{
 			if(a.getSource()==widthAndheight[0])
 				{
-				String s=	JOptionPane.showInputDialog(null,"Enter la largeur");
+				String s=	JOptionPane.showInputDialog(null,"Entrer la largeur");
 			w=Integer.parseInt(s);
 				}
 			else
 				{
-				String s=JOptionPane.showInputDialog(null,"Enter la Hauteur");
+				String s=JOptionPane.showInputDialog(null,"Entrer la Hauteur");
 				h=Integer.parseInt(s);
 				}
 			}catch(Exception e ){
@@ -165,6 +193,37 @@ public Proprieties(){
 		widthAndheight[1].setBackground(new Color(x2,y2,z2));
 		
 		
+		
+		onclk= new JLabel("Btn on click");
+		onclk.setSize(new Dimension(100, 0));
+		onclk.setAlignmentX(Component.CENTER_ALIGNMENT);
+		onclk.setFont(new Font("Ubuntu Medium", Font.BOLD, 13));
+		onclk.setForeground(Color.BLACK);
+		
+		jlistbtn=new JList();
+		jlistbtn.setBorder(UIManager.getBorder("CheckBox.border"));
+		
+		
+
+		
+		
+		
+		JSeparator separator_3 = new JSeparator();
+		separator_3.setMaximumSize(new Dimension(300, 20));
+		Fenetre.verticalBox_1.add(separator_3);
+		
+		
+		
+		executer = new JButton("executer");
+		executer.setBorder(UIManager.getBorder("CheckBox.border"));
+		Fenetre.verticalBox_1.add(executer);
+		executer.setBackground(new Color(200,200,200));
+	    executer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					
+				
+		}
+			});
 		
 /*
  * 

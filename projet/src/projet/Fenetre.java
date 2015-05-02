@@ -36,6 +36,7 @@ import javax.swing.JPopupMenu;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JScrollPane;
 
 public class Fenetre {
 
@@ -53,6 +54,9 @@ public class Fenetre {
     /**
 	 * Launch the application.
 	 */
+    
+    
+    
     
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -153,15 +157,15 @@ public class Fenetre {
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(horizontalBox_1, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+				.addComponent(horizontalBox_1, GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(verticalBox, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(horizontalBox_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(horizontalBox_2, GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(verticalBox_1, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
-				.addComponent(horizontalBox, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+				.addComponent(horizontalBox, GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -171,21 +175,33 @@ public class Fenetre {
 					.addComponent(horizontalBox_1, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(verticalBox, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-						.addComponent(horizontalBox_2, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-						.addComponent(verticalBox_1, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+						.addComponent(verticalBox, GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+						.addComponent(horizontalBox_2, GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+						.addComponent(verticalBox_1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
 					.addGap(0))
 		);
+	
+		
+		
+		
+		
+		
+		
+		JScrollPane scrollPane = new JScrollPane();
+		horizontalBox_2.add(scrollPane);
+		
+		
 		
 		
 		
 		panel = new JPanel();
+		scrollPane.setViewportView(panel);
 		panel.setBorder(UIManager.getBorder("MenuItem.border"));
 		panel.setBackground(new Color(152, 251, 152));
-		horizontalBox_2.add(panel);
 		
 		
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		
 		
 		
 		

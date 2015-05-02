@@ -49,6 +49,7 @@ public Palette(){
 	
 	}
 
+
 	@Override
 	public void actionPerformed(ActionEvent a) {
 		// TODO Auto-generated method stub
