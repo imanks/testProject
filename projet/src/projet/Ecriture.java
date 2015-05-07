@@ -41,6 +41,7 @@ public class Ecriture {
 		// update staff attribute
 		NamedNodeMap attr = staff.getAttributes();
 		Node nodeAttr = attr.getNamedItem("id");
+		
 		nodeAttr.setTextContent("2");
  
 		// append a new node to staff

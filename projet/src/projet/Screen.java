@@ -15,13 +15,15 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.table.TableColumn;
 
 import java.awt.event.ActionListener;
 
 public class Screen extends JPanel {
 
 	static DraggedComponent DC;
-
+    static public String [][] elements=new String[20][20];
+    int i=0;
 	Layout lay;
 
 	public static int tglClicked2;
@@ -41,6 +43,7 @@ public Screen(String s){
     setMinimumSize(new Dimension(270, 300));
     setMaximumSize(new Dimension(270, 300));
     setLayout(null);
+    
 
 lblScreen = new JLabel(s);
 lblScreen.setBorder(new LineBorder(new Color(x1, y1, z1), 2, true));
@@ -55,37 +58,48 @@ this.updateUI();
 addMouseListener(new MouseAdapter() {
  
 	public void mousePressed(MouseEvent a) {
-// TODO Auto-generated method stub
 System.out.println("rani hna :"+Palette.tglClicked);
 
    if(Palette.tglClicked=="Button"){
 DC=	new DraggedComponent("Button");
 DC.c.setLocation(a.getX(), a.getY());
 add(DC.c);
+elements[i][0]="Button";
+//System.out.println("elements"+i+elements[i][0]);
+
+i++;
 }
 
    if(Palette.tglClicked=="Label"){
 DC=	new DraggedComponent("Label");
 DC.c.setLocation(a.getX(), a.getY());
 add(DC.c);
+elements[i][0]="Label";
+i++;
 }
 
    if(Palette.tglClicked=="Text Box"){
 DC=	new DraggedComponent("Text Box");
 DC.c.setLocation(a.getX(), a.getY());
 add(DC.c);
+elements[i][0]="Text Box";
+i++;
 }
 
    if(Palette.tglClicked=="Radio Button"){
 DC=	new DraggedComponent("Radio Button");
 DC.c.setLocation(a.getX(), a.getY());
 add(DC.c);
+elements[i][0]="Radio Button";
+i++;
 }
 
 if(Palette.tglClicked=="Slider"){
 DC=	new DraggedComponent("Slider");
 DC.c.setLocation(a.getX(), a.getY());
 add(DC.c);
+elements[i][0]="Slider";
+i++;
 }
 
 if(Palette.tglClicked=="VLayout"){
@@ -101,8 +115,12 @@ lay.box.setLocation(xLayout, yLayout);
 add(lay.box);
 yLayout+=31;
 }
+
+
 Palette.tglClicked="";
 updateUI();
+
+
 lay.box.addKeyListener(new KeyAdapter() {
 
 	public void keyPressed(KeyEvent k) {
@@ -116,7 +134,7 @@ lay.box.addKeyListener(new KeyAdapter() {
 });
 }
 
-
+  
 	public void mouseExited(MouseEvent e) {entred=false;
 getGraphics().setColor(Color.RED);
 
@@ -161,7 +179,9 @@ g.drawRect(xLayout,yLayout, getWidth()-xLayout-6, 30);
 }
 }
 
-     public class event implements ActionListener{
+    
+
+public class event implements ActionListener{
 
 
 
@@ -169,6 +189,7 @@ g.drawRect(xLayout,yLayout, getWidth()-xLayout-6, 30);
 
 	if(scr.getSource()=="Button"){
 tglClicked2=1;
+
 }
 
 	if(scr.getSource()=="Label"){

@@ -11,8 +11,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractButton;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -22,21 +24,20 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 public class Proprieties  {
-	
 
-	
-	
 	
 	public Color color;
 	
 	JButton btnTextcolor;
 	JButton btnBackground;
-	JButton executer;
+	JButton ActionButton;
 	int x2=50,y2=205,z2=50; /*proprieties button color */
 	static JTextField textField,txtFieldsc;
 	static JButton []widthAndheight ;
     static JLabel onclk;
 	static JList jlistbtn;
+	public static JComboBox comboBox;
+	
 	
 public Proprieties(){
 		
@@ -62,7 +63,7 @@ public Proprieties(){
           if(txtFieldsc.getText()!=null){
         	  
         	Screen.lblScreen.setText(txtFieldsc.getText());
-        	 
+        	
           }			
 		}
 	});
@@ -138,6 +139,8 @@ public Proprieties(){
 					
 	}
 	    });
+	
+	
 	JSeparator sep2 = new JSeparator();
 	sep2.setMaximumSize(new Dimension(300, 20));
 	Fenetre.verticalBox_1.add(sep2);
@@ -151,6 +154,8 @@ public Proprieties(){
 	//size button 
 	
 	//
+	
+	
 	
 	JLabel size = new JLabel("Size");
 	Fenetre.verticalBox_1.add(size);
@@ -193,37 +198,56 @@ public Proprieties(){
 		widthAndheight[1].setBackground(new Color(x2,y2,z2));
 		
 		
-		
-		onclk= new JLabel("Btn on click");
-		onclk.setSize(new Dimension(100, 0));
-		onclk.setAlignmentX(Component.CENTER_ALIGNMENT);
-		onclk.setFont(new Font("Ubuntu Medium", Font.BOLD, 13));
-		onclk.setForeground(Color.BLACK);
-		
-		jlistbtn=new JList();
-		jlistbtn.setBorder(UIManager.getBorder("CheckBox.border"));
-		
-		
-
-		
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		
 		JSeparator separator_3 = new JSeparator();
 		separator_3.setMaximumSize(new Dimension(300, 20));
 		Fenetre.verticalBox_1.add(separator_3);
 		
+		onclk= new JLabel("Btn on click");
+		onclk.setSize(new Dimension(100, 0));
+		onclk.setAlignmentX(Component.CENTER_ALIGNMENT);
+		onclk.setFont(new Font("Ubuntu Medium", Font.BOLD, 13));
+		onclk.setForeground(Color.BLACK);
+		Fenetre.verticalBox_1.add(onclk);
 		
 		
-		executer = new JButton("executer");
-		executer.setBorder(UIManager.getBorder("CheckBox.border"));
-		Fenetre.verticalBox_1.add(executer);
-		executer.setBackground(new Color(200,200,200));
-	    executer.addActionListener(new ActionListener() {
+		
+		
+		comboBox = new JComboBox();
+		comboBox.setMaximumSize(new Dimension(200, 30));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"go to","screen 1", "screen 2","screen3"}));
+		Fenetre.verticalBox_1.add(comboBox);
+		comboBox.addActionListener(new ActionListener() {
+			
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
-					
+	            		// ecriture dans .java 	
 				
-		}
-			});
+				/*
+				 * Button buttonOne = (Button) findViewById(R.id.button1);
+                   buttonOne.setOnClickListener(new Button.OnClickListener() {
+                   public void onClick(View v) {
+                     //Do stuff here
+                    }
+                   });
+				 * 
+				 * 
+				 */
+			}
+
+			
+		});
+		
+		
+		
+	
+		
+		
+		
+		
+		
 		
 /*
  * 

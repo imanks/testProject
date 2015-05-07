@@ -1,17 +1,26 @@
 package projet;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JToggleButton;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
@@ -25,8 +34,8 @@ public class Palette  implements ActionListener{
 	JToggleButton [] jtb= new JToggleButton[7];
 	int i;	
 	public static String tglClicked; 
-	
-	
+	public static JComboBox comboBox;
+	public static JLabel lbl;
 
 	
 public Palette(){
@@ -44,10 +53,83 @@ public Palette(){
 		jtb[i].addActionListener(this);
 		bg.add(jtb[i]);
 		Fenetre.verticalBox.add(jtb[i]);		
-		
 	}
 	
+	
+    JSeparator separator = new JSeparator();
+	separator.setMaximumSize(new Dimension(300, 20));
+	Fenetre.verticalBox.add(separator);
+	
+	JLabel lblText = new JLabel("BackGroundImage");
+	lblText.setSize(new Dimension(100, 0));
+	lblText.setAlignmentX(Component.CENTER_ALIGNMENT);
+	lblText.setFont(new Font("Ubuntu Medium", Font.BOLD, 13));
+	lblText.setForeground(Color.BLACK);
+	Fenetre.verticalBox.add(lblText);
+	
+	comboBox = new JComboBox();
+	comboBox.setMaximumSize(new Dimension(200, 30));
+	comboBox.setModel(new DefaultComboBoxModel(new String[] {"image1", "image2", "image3"}));
+	comboBox.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+            comboAction();			
+		}
+
+		
+	});
+	
+	
+	
+	/*
+	
+	*/
+	
+	
+    
+	comboBox.updateUI();
+	
+	
+	Fenetre.verticalBox.add(comboBox);
+	
+	
+	
+	
+	
+	 lbl=new JLabel();
+	Screen.sc.add(lbl);
+	
+	
 	}
+
+public void comboAction(){
+	lbl.setIcon(null);
+	if(comboBox.getModel().getSelectedItem()=="image2"){
+		lbl.setVisible(true);
+		lbl.setSize(290, 450);
+		lbl.setIcon(new ImageIcon("/home/imane/git/firstTry/projet/BackGroundImage/image2.jpg"));
+		comboBox.updateUI();
+
+	}
+		
+	if(comboBox.getModel().getSelectedItem()=="image1"){
+		
+		lbl.setVisible(true);
+		lbl.setSize(290, 450);
+		lbl.setIcon(new ImageIcon("/home/imane/git/firstTry/projet/BackGroundImage/image1.jpg"));
+		comboBox.updateUI();
+	}
+	if(comboBox.getModel().getSelectedItem()=="image3"){
+		
+		lbl.setVisible(true);
+		lbl.setSize(290, 450);
+		lbl.setIcon(new ImageIcon("/home/imane/git/firstTry/projet/BackGroundImage/image3.jpg"));
+		comboBox.updateUI();
+
+	}
+}
+
 
 
 	@Override
